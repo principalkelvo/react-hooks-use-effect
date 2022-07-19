@@ -9,18 +9,19 @@ function DogPics() {
     console.log("useEffect");
     fetch("https://dog.ceo/api/breeds/image/random/3")
       .then((r) => r.json())
-      .then((data) => {
-        console.log("setState");
-        setImages(data.message);
-      });
-  });
+      .then(
+        (data) => {
+          console.log("setState");
+          setImages(data.message);
+        });
+  },[]);
 
   console.log("render");
 
   return (
     <div>
       {images.map((image) => (
-        <img src={image} key={image} />
+        <img src={image} key={image} alt=""/>
       ))}
     </div>
   );
